@@ -192,11 +192,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
---- !u!1 &156530405 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5027967755361212143, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
-  m_PrefabInstance: {fileID: 156530404}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &187419378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -266,11 +261,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
---- !u!1 &187419379 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5027967755361212143, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
-  m_PrefabInstance: {fileID: 187419378}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &388579932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -566,11 +556,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
---- !u!1 &861912533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5027967755361212143, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
-  m_PrefabInstance: {fileID: 861912532}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &935628954
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,15 +898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc6ae9b22e99474e84571ac4ea95365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bolas:
-  - {fileID: 388579933}
-  - {fileID: 1029759043}
-  - {fileID: 1171552095}
-  - {fileID: 187419379}
-  - {fileID: 156530405}
-  - {fileID: 1670605798}
-  - {fileID: 861912533}
+  countBallsTest: 50
+  ballPrefab: {fileID: 0}
   tiempoEntreBolas: 2
+  minDistance: 0
+  maxDistance: 0
 --- !u!1 &1629907154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,10 +1373,14 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1308103969}
-  - {fileID: 4696964294546081573}
   - {fileID: 1991380178}
   - {fileID: 2124455146}
   - {fileID: 1629907157}
   - {fileID: 863881141886335851}
   - {fileID: 6856108151799771088}
   - {fileID: 2944536434792604382}
+  - {fileID: 861912532}
+  - {fileID: 156530404}
+  - {fileID: 187419378}
+  - {fileID: 388579932}
+  - {fileID: 1389357392}
