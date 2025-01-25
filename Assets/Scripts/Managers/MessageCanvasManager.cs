@@ -18,15 +18,15 @@ public class MessageCanvasManager : MonoBehaviour
 
    public GameObject winCanvas;
    public GameObject loseCanvas;
-   //public Text loseMessage;
+  bool isWinning;
    public void SetMessage(bool win, string message = ""){
-       winCanvas.SetActive(win);
-       loseCanvas.SetActive(!win);
+      this.isWinning = win;
+
+      Invoke(nameof(ActiveMessage),0.5f);
      //  loseMessage.text = message;
    }
-
-   void TweenMessage(){
-
+   void ActiveMessage(){
+      winCanvas.SetActive(isWinning);
+       loseCanvas.SetActive(!isWinning);
    }
-
 }

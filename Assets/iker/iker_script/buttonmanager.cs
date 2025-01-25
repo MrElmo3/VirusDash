@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class buttonmanager : MonoBehaviour
@@ -47,17 +46,8 @@ public class buttonmanager : MonoBehaviour
         }
     }
 
-    public void ReiniciarJuego()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void quit()
     {
-       #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-       #else
-            Application.Quit();
-       #endif
+       SceneGameManager.Instance.GoQuit();
     }
 }

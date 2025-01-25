@@ -18,16 +18,8 @@ public class GameManager : Singleton<GameManager> {
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				StartGame();
 			}
-			if (Input.GetKeyDown(KeyCode.Q)) {
-				EndLevel();
-			}	
 		}
 	}
-
-	public void EndLevel(){
-		LevelManager.Instance.SetLevel();
-		SceneGameManager.Instance.GoToGame();
-
-	}
+	
 
 }

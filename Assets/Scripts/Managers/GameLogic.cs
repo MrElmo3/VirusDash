@@ -84,12 +84,15 @@ public class GameLogic : MonoBehaviour
         if(LevelManager.Instance){
             switch(code){
                 case "time": 
+                    MessageCanvasManager.Instance.SetMessage(false);
                     Debug.Log("se lleno la barra, perdiste");
                     break;
                 case "water":
+                    MessageCanvasManager.Instance.SetMessage(false);
                     Debug.Log("chocaste agua");
                     break;
                 case "win":
+                    MessageCanvasManager.Instance.SetMessage(true);
                     Debug.Log("chocaste agua");
                     break;
             }
@@ -101,8 +104,23 @@ public class GameLogic : MonoBehaviour
                 Debug.LogError("Error en la matrix");
             #endif
         }
-
     }
 
+    public void RestartGame(){
+        SceneGameManager.Instance.GoToGame();
+    }
+
+    public void QuitGame(){
+       SceneGameManager.Instance.GoQuit();
+    }
+    public void NextLevel(){
+        if(LevelManager.Instance.CheckEndLevels()){
+            SceneGameManager.Instance.GoToCredits();
+        }else{
+            LevelManager.Instance.SetLevel();
+		    SceneGameManager.Instance.GoToGame();
+        }
+        
+    }
     
 }
