@@ -13,7 +13,11 @@ public class BolaManager : MonoBehaviour
     [Header("References")]
     
     public GameObject ballPrefab;
-    private List<GameObject> bolas = new List<GameObject>();
+    public Transform ballContainer;
+    public GameObject limit_left, limit_right;
+
+
+    public List<GameObject> bolas = new List<GameObject>();
     public float tiempoEntreBolas = 2f; // Tiempo entre cada bola que se vuelve visible
     public float minDistance, maxDistance;
     private float countBallsGame;
@@ -38,26 +42,28 @@ public class BolaManager : MonoBehaviour
     void Start()
     {
         int i = 0;
+        float acumulative = 4f;
         Vector3 newPos = new Vector3(2,4); 
 //        bool isLeft = true;
         for (i = 0; i < countBallsGame; i++){
-            float random_x = UnityEngine.Random.Range( /*(isLeft? -5:0) , (isLeft?0:5)*/ -6.5f,6.5f);
+            float random_x = UnityEngine.Random.Range( limit_left.transform.position.x ,limit_right.transform.position.x  );
             float random_y = UnityEngine.Random.Range(minDistance,maxDistance);
-            newPos += new Vector3(random_x,random_y);
+            acumulative+= random_y;
   //          isLeft=!isLeft;
-            GameObject b = Instantiate(ballPrefab, newPos, Quaternion.identity);
+            GameObject b = Instantiate(ballPrefab, new Vector3(random_x,acumulative), Quaternion.identity);
+
+            b.transform.SetParent(ballContainer);
             bolas.Add(b);
        }     
 
      
-        for (i = 0; i < bolas.Count; i++)
+        for (i = 2; i < bolas.Count; i++)
         {
             bolas[i].SetActive(false);
         }
 
- 
-      //  int index = 2; 
     }
+    [SerializeField]int index = 0; 
     void Update(){
         if(Input.GetKeyDown(KeyCode.Q)) {
             NextVisible();
@@ -65,13 +71,18 @@ public class BolaManager : MonoBehaviour
     }
     public void NextVisible()
     {
-        for (int i = 0; i < bolas.Count; i++)
-        {
-            if (!bolas[i].activeSelf) // Si la bola no está activa
+        index++;
+        if(index >= 2){
+            for (int i = 0; i < bolas.Count; i++)
             {
-                bolas[i].SetActive(true); // La hace visible
-                break; // Sale del bucle después de hacer visible la bola
+                if (!bolas[i].activeSelf) // Si la bola no está activa
+                {
+                    bolas[i].SetActive(true); // La hace visible
+                    break; // Sale del bucle después de hacer visible la bola
+                }
             }
         }
+
+        
     }
 }

@@ -81,13 +81,26 @@ public class GameLogic : MonoBehaviour
     }
 
     void OnGameEnd(string code){
-        if(code == "time"){
-            Debug.Log("se lleno la barra, perdiste");
-        }else if(code == "water"){
-            Debug.Log("chocaste agua");
-        }else if(code == "win"){
-
+        if(LevelManager.Instance){
+            switch(code){
+                case "time": 
+                    Debug.Log("se lleno la barra, perdiste");
+                    break;
+                case "water":
+                    Debug.Log("chocaste agua");
+                    break;
+                case "win":
+                    Debug.Log("chocaste agua");
+                    break;
+            }
+        }else{
+            #if UNITY_EDITOR
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
+            #else
+                Debug.LogError("Error en la matrix");
+            #endif
         }
+
     }
 
     
