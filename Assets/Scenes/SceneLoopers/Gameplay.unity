@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115949719688156606, guid: 75de7d27b44339c48897bae8db92444d, type: 3}
       propertyPath: targetHeightTest
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4493866067981689674, guid: 75de7d27b44339c48897bae8db92444d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -395,6 +395,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Size.x
+      value: 4.6270647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7763839
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.16759169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.8526231
+      objectReference: {fileID: 0}
     - target: {fileID: 4981095946596680013, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
       propertyPath: m_Name
       value: WaterLevel
@@ -699,6 +715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 513760241}
     - target: {fileID: 5721160749990494397, guid: e8228b73eb627304e96a27fed63d5d59, type: 3}
+      propertyPath: countBallsTest
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721160749990494397, guid: e8228b73eb627304e96a27fed63d5d59, type: 3}
       propertyPath: bolas.Array.data[0]
       value: 
       objectReference: {fileID: 1629958753}
@@ -776,7 +796,7 @@ Transform:
   m_GameObject: {fileID: 976306912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: -2.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -920,14 +940,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 874544214745057223, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -190
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802551653546427208, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 229.99997
-      objectReference: {fileID: 0}
     - target: {fileID: 1832322348347506120, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
       propertyPath: m_Name
       value: MessageCanvas
@@ -936,30 +948,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 224811942}
-    - target: {fileID: 2233009083906762815, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233009083906762815, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameLogic, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4088817587423030637, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 224811942}
-    - target: {fileID: 4088817587423030637, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088817587423030637, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameLogic, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5130764378015466365, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -57
-      objectReference: {fileID: 0}
     - target: {fileID: 5640720785956731484, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1044,18 +1036,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 224811942}
-    - target: {fileID: 6814214076094396686, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814214076094396686, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameLogic, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7965299591904566675, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 230
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1239,7 +1219,7 @@ Transform:
   m_GameObject: {fileID: 2067624009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 2.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1257,8 +1237,8 @@ SceneRoots:
   - {fileID: 832246702}
   - {fileID: 993317401}
   - {fileID: 224811941}
-  - {fileID: 976306913}
   - {fileID: 901809992}
+  - {fileID: 976306913}
   - {fileID: 2067624010}
   - {fileID: 431866447}
   - {fileID: 1746483423}

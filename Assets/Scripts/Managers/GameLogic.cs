@@ -36,6 +36,8 @@ public class GameLogic : MonoBehaviour
     private float targetHeightGame;
     private float speedWaterLevelGame;
 
+    public float TargetHeightGame=> targetHeightGame;
+
     public static System.Action<string> onGameEnd;
 
 

@@ -12,13 +12,18 @@ public class MessageCanvasManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        Awakee();
         Instance = this;
    }
-
+   public GameObject bg;
    public GameObject winCanvas;
    public GameObject loseCanvas;
-  bool isWinning;
+   bool isWinning;
+   void Awakee(){
+       bg.SetActive(false);
+       winCanvas.SetActive(false);
+       loseCanvas.SetActive(false);
+   }
    public void SetMessage(bool win, string message = ""){
       this.isWinning = win;
 
@@ -26,7 +31,8 @@ public class MessageCanvasManager : MonoBehaviour
      //  loseMessage.text = message;
    }
    void ActiveMessage(){
-      winCanvas.SetActive(isWinning);
+       bg.SetActive(true);
+       winCanvas.SetActive(isWinning);
        loseCanvas.SetActive(!isWinning);
    }
 }
