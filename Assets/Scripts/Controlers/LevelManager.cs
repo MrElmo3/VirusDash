@@ -50,6 +50,6 @@ public class LevelManager : MonoBehaviour
         return levels[level];
     }
     public bool CheckEndLevels(){
-        return GetLevel() >= levels.Length;
+        return GetLevel() >= levels.Length-1;
     }
 }

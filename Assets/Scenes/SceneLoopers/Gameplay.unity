@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115949719688156606, guid: 75de7d27b44339c48897bae8db92444d, type: 3}
       propertyPath: targetHeightTest
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4493866067981689674, guid: 75de7d27b44339c48897bae8db92444d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -265,6 +265,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75de7d27b44339c48897bae8db92444d, type: 3}
+--- !u!114 &224811942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2115949719688156606, guid: 75de7d27b44339c48897bae8db92444d, type: 3}
+  m_PrefabInstance: {fileID: 224811941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d807cd5642606b9498584336f30a8316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &258001113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5027967755361212143, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
@@ -384,6 +395,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Size.x
+      value: 4.6270647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7763839
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.16759169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469213788500253569, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.8526231
+      objectReference: {fileID: 0}
     - target: {fileID: 4981095946596680013, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
       propertyPath: m_Name
       value: WaterLevel
@@ -428,8 +455,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2282108710042301712, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -689,6 +715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 513760241}
     - target: {fileID: 5721160749990494397, guid: e8228b73eb627304e96a27fed63d5d59, type: 3}
+      propertyPath: countBallsTest
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721160749990494397, guid: e8228b73eb627304e96a27fed63d5d59, type: 3}
       propertyPath: bolas.Array.data[0]
       value: 
       objectReference: {fileID: 1629958753}
@@ -766,7 +796,7 @@ Transform:
   m_GameObject: {fileID: 976306912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: -2.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -914,6 +944,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MessageCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2233009083906762815, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 224811942}
+    - target: {fileID: 4088817587423030637, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 224811942}
     - target: {fileID: 5640720785956731484, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -994,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6814214076094396686, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 224811942}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1177,7 +1219,7 @@ Transform:
   m_GameObject: {fileID: 2067624009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 2.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
