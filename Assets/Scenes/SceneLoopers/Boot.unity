@@ -449,6 +449,7 @@ MonoBehaviour:
   - id: tube_1
     name: Tutorial
     heightTube: 100
+    speedTube: 0
     speedCharacter: 5
     enemiesCount: 0
 --- !u!4 &1579737778
@@ -474,6 +475,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1111575757209749546, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111575757209749546, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111575757209749546, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8023596741699463990, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
       propertyPath: m_Name
       value: Canvas

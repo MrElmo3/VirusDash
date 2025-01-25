@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/iker/MainMenu.unity
-    guid: 4fb01e17a76037e4a815301d21ae99ac
+    path: Assets/Scenes/SceneLoopers/Boot.unity
+    guid: 3951c1dfee0543d4f8cca0c08b293718
   - enabled: 1
-    path: Assets/iker/iker_scene.unity
-    guid: 52fde336e04ba5148af03d02fca2676e
+    path: Assets/Scenes/SceneLoopers/MainMenu.unity
+    guid: ea9f971723be9f14bb45a033fedf38d3
   - enabled: 1
-    path: Assets/iker/Creditos.unity
-    guid: d0ec76b2fa37e6a429865a8244b865d3
+    path: Assets/Scenes/SceneLoopers/CutAnimation.unity
+    guid: fc41cdff9ec758f4fa6a732440795632
+  - enabled: 1
+    path: Assets/Scenes/SceneLoopers/Gameplay.unity
+    guid: a2449488f03b9884d94fa15b2bfb7a80
   m_configObjects: {}
