@@ -285,11 +285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2335186099331719638, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
       propertyPath: m_Radius
-      value: 2.329455
+      value: 2.8365111
       objectReference: {fileID: 0}
     - target: {fileID: 2335186099331719638, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
       propertyPath: m_Offset.x
-      value: -0.076701045
+      value: -0.117264986
       objectReference: {fileID: 0}
     - target: {fileID: 2335186099331719638, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
       propertyPath: m_Offset.y
@@ -588,9 +588,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2445607, y: 0}
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Radius: 1.337497
 --- !u!1001 &1029759042
 PrefabInstance:
   m_ObjectHideFlags: 0
