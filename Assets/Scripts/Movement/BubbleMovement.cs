@@ -8,7 +8,6 @@ public class BubbleMovement : MonoBehaviour
     public float dragCo = 0.47f;
     private Rigidbody2D rb;
     private float volObject;
-    
     void Start()
     {
         rb= GetComponent<Rigidbody2D>();
@@ -17,6 +16,7 @@ public class BubbleMovement : MonoBehaviour
     }
 
     void FixedUpdate(){
+
         float forcePush = liquidDensity * volObject * Physics.gravity.magnitude;
         Vector3 forceVector = forcePush * Vector3.up;
 
