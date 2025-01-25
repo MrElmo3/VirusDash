@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BubbleInteract : MonoBehaviour
 {
     public float force = 10f;
         private Rigidbody2D rb;
-        public ArrowFollow arrowFollow;
+     
     // Start is called before the first frame update
     void Start()
     {
