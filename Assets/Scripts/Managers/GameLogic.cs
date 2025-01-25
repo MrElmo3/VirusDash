@@ -10,6 +10,7 @@ public class GameLogic : MonoBehaviour
 
 
     [Header("References")]
+    public GameManager gameManager;
     public GameObject waterLevel;
     public GameObject tube;
 
@@ -46,10 +47,11 @@ public class GameLogic : MonoBehaviour
         duration = targetHeightGame / speedWaterLevelGame;
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
-        tube.transform.position = targetposition;
+        tube.transform.position = targetposition + new Vector3(0, 0, 3f);
     }
 
     void Update(){
+        if(!gameManager.isStarted) return;
         elapsedTime+= Time.deltaTime;
         waterLevel.transform.position= Vector3.Lerp(startposition, targetposition , elapsedTime / duration);
         if(elapsedTime >= duration){
