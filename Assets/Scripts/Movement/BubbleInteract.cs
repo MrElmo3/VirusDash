@@ -23,6 +23,7 @@ public ArrowFollow arrowFollow;
             float radiands = Mathf.Deg2Rad * angle;
             Vector3 direction = new Vector3(Mathf.Sin(radiands),0f,Mathf.Cos(radiands));
             rb.AddForce(direction * force, ForceMode2D.Impulse);
+            
             is_jumping = true;
         }
     }
