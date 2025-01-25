@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameLogic : MonoBehaviour
+{
+    [Header("Variables only for testing")]
+    public float targetHeightTest = 50f;
+    public float speedWaterTest = 5f;
+
+
+    [Header("References")]
+    public GameObject waterLevel;
+    public SpriteRenderer tube;
+    public SpriteRenderer waterBG;
+        
+    private float duration;
+    private Vector3 startposition;
+    private Vector3 targetposition;
+    private float elapsedTime = 0f;
+
+    private float targetHeightGame;
+    private float speedWaterLevelGame;
+
+    void Awake(){
+        if(!LevelManager.Instance){
+            targetHeightGame = targetHeightTest;
+            speedWaterLevelGame = speedWaterTest;
+
+        }else{
+            LevelManager.LevelDTO level = LevelManager.Instance.GetCurrentLevelDTO();
+            targetHeightGame = level.heightTube;
+            speedWaterLevelGame = level.speedTube;
+
+        }
+    }
+    void Start(){
+        duration = targetHeightGame / speedWaterLevelGame;
+        startposition = waterLevel.transform.position;
+        targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
+    }
+
+    void Update(){
+        elapsedTime+= Time.deltaTime;
+        waterLevel.transform.position= Vector3.Lerp(startposition, targetposition , elapsedTime / duration);
+        if(elapsedTime >= duration){
+            waterLevel.transform.position = targetposition;
+        }
+    }
+
+}
