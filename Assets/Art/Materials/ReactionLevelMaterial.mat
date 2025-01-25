@@ -54,10 +54,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _OndulationSize: 3.07
+    - _OndulationSize: 2.19
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _level: 7.46
+    - _level: 7.05
     - _velocity: 2.3
     m_Colors:
     - _Color: {r: 0.295022, g: 0.23327155, b: 0.7584905, a: 1}
