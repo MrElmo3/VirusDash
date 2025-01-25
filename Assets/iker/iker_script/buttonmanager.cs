@@ -43,6 +43,11 @@ public class buttonmanager : MonoBehaviour
         }
     }
 
+    public void ReiniciarJuego()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void quit()
     {
         Debug.Log("adios");
