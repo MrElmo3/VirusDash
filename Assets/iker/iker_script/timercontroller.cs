@@ -2,42 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class timercontroller : MonoBehaviour
+public class TimerController : MonoBehaviour
 {
-
-    [SerializeField] int min, seg;
+    [SerializeField] int segundosTotales; // Ingresar solo segundos aquí
     [SerializeField] TextMeshProUGUI tiempo;
 
     private float restante;
-    private bool enmarcha;
+    private bool enMarcha;
 
     private void Awake()
     {
-        restante = (min * 60) + seg;
-        enmarcha = true;
+        restante = segundosTotales;
+        enMarcha = true;
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
-        if (enmarcha)
+        if (enMarcha)
         {
             restante -= Time.deltaTime;
-            if (restante <1)
+            if (restante <= 0)
             {
-                enmarcha = true;
-                ///moriste
+                enMarcha = false;
+                restante = 0;
+                // Acción cuando el tiempo se acabe
+                Debug.Log("¡Tiempo agotado!");
             }
 
-            int tempmin = Mathf.FloorToInt(restante/60);
-            int tempseg = Mathf.FloorToInt(restante % 60);
-            tiempo.text = string.Format("{00:00}:{01:00}", tempmin, tempseg);
+            int tempMin = Mathf.FloorToInt(restante / 60);
+            int tempSeg = Mathf.FloorToInt(restante % 60);
+            tiempo.text = string.Format("{0:00}:{1:00}", tempMin, tempSeg);
         }
-
     }
 }
- 
