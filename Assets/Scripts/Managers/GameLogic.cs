@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
+    public static GameLogic Instance{ get;set;}
+   
+   void Awake()
+   {
+        if(Instance != null && Instance != this){
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        Awakee();
+   }
+
+
     [Header("Variables only for testing")]
     public float targetHeightTest = 50f;
     public float speedWaterTest = 5f;
@@ -23,10 +36,10 @@ public class GameLogic : MonoBehaviour
     private float targetHeightGame;
     private float speedWaterLevelGame;
 
-    public System.Action onGameEnd;
+    public static System.Action<string> onGameEnd;
 
 
-    void Awake(){
+    void Awakee(){
         if(!LevelManager.Instance){
             targetHeightGame = targetHeightTest;
             speedWaterLevelGame = speedWaterTest;
@@ -36,11 +49,11 @@ public class GameLogic : MonoBehaviour
             targetHeightGame = level.heightTube;
             speedWaterLevelGame = level.speedTube;
         }
-        onGameEnd+= GameEnd;
+        onGameEnd+= OnGameEnd;
     }
 
     void OnDestroy(){
-        onGameEnd -= GameEnd;
+        onGameEnd -= OnGameEnd;
     }
 
     void Start(){
@@ -56,13 +69,26 @@ public class GameLogic : MonoBehaviour
         waterLevel.transform.position= Vector3.Lerp(startposition, targetposition , elapsedTime / duration);
         if(elapsedTime >= duration){
             waterLevel.transform.position = targetposition;
-            if(onGameEnd != null){
-                onGameEnd.Invoke();
-                onGameEnd = null;
-            }
+            GameEnd("time");
         }
     }
-    void GameEnd(){
-        Debug.Log("se lleno la barra, perdiste");
+    
+    public void GameEnd(string code){
+        if(onGameEnd != null){
+            onGameEnd.Invoke(code);
+            onGameEnd = null;
+        }
     }
+
+    void OnGameEnd(string code){
+        if(code == "time"){
+            Debug.Log("se lleno la barra, perdiste");
+        }else if(code == "water"){
+            Debug.Log("chocaste agua");
+        }else if(code == "win"){
+
+        }
+    }
+
+    
 }

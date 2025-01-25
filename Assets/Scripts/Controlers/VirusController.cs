@@ -56,6 +56,8 @@ public class VirusController : MonoBehaviour {
             isInBubble = true;
             rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
+        }else if(other.CompareTag("water")){
+            GameLogic.Instance.GameEnd("water");
         }
     }
 }

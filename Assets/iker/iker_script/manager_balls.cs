@@ -55,9 +55,7 @@ public class BolaManager : MonoBehaviour
             bolas[i].SetActive(false);
         }
 
-  
-        bolas[0].SetActive(true); 
-        bolas[1].SetActive(true); 
+ 
       //  int index = 2; 
     }
     void Update(){
@@ -67,7 +65,7 @@ public class BolaManager : MonoBehaviour
     }
     public void NextVisible()
     {
-        for (int i = 1; i < bolas.Count; i++)
+        for (int i = 0; i < bolas.Count; i++)
         {
             if (!bolas[i].activeSelf) // Si la bola no está activa
             {
