@@ -294,9 +294,9 @@ GameObject:
   m_Component:
   - component: {fileID: 618193128}
   - component: {fileID: 618193127}
-  - component: {fileID: 618193131}
-  - component: {fileID: 618193133}
   - component: {fileID: 618193132}
+  - component: {fileID: 618193133}
+  - component: {fileID: 618193131}
   - component: {fileID: 618193134}
   - component: {fileID: 618193135}
   m_Layer: 0
