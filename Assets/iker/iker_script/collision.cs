@@ -7,13 +7,6 @@ public class StaticOnCollision : MonoBehaviour
     private Rigidbody2D rb2d;
     private Collider2D col2d;
 
-    [SerializeField] private float JumpForce;
-    [SerializeField] private bool isInBubble;
-
-
-    private Rigidbody2D rb;
-
-
     void Start()
     {
         // Obtenemos el Rigidbody2D y el Collider2D del objeto
@@ -29,7 +22,7 @@ public class StaticOnCollision : MonoBehaviour
         Debug.Log("Colisión detectada con: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Hola"))
         {
-          FreezeObject();
+            FreezeObject();
         }
     }
 
