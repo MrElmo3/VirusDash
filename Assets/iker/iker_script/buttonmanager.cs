@@ -47,6 +47,11 @@ public class buttonmanager : MonoBehaviour
         }
     }
 
+    public void ReiniciarJuego()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void quit()
     {
        #if UNITY_EDITOR
