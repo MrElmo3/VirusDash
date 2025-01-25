@@ -49,5 +49,7 @@ public class LevelManager : MonoBehaviour
         int level = GetLevel();
         return levels[level];
     }
-
+    public bool CheckEndLevels(){
+        return GetLevel() >= levels.Length;
+    }
 }

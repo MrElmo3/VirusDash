@@ -11,8 +11,8 @@ public class GameLogic : MonoBehaviour
 
     [Header("References")]
     public GameObject waterLevel;
-    public SpriteRenderer tube;
-    public SpriteRenderer waterBG;
+    public GameObject tube;
+
         
     private float duration;
     private Vector3 startposition;
@@ -21,6 +21,9 @@ public class GameLogic : MonoBehaviour
 
     private float targetHeightGame;
     private float speedWaterLevelGame;
+
+    public System.Action onGameEnd;
+
 
     void Awake(){
         if(!LevelManager.Instance){
@@ -31,13 +34,19 @@ public class GameLogic : MonoBehaviour
             LevelManager.LevelDTO level = LevelManager.Instance.GetCurrentLevelDTO();
             targetHeightGame = level.heightTube;
             speedWaterLevelGame = level.speedTube;
-
         }
+        onGameEnd+= GameEnd;
     }
+
+    void OnDestroy(){
+        onGameEnd -= GameEnd;
+    }
+
     void Start(){
         duration = targetHeightGame / speedWaterLevelGame;
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
+        tube.transform.position = targetposition;
     }
 
     void Update(){
@@ -45,7 +54,13 @@ public class GameLogic : MonoBehaviour
         waterLevel.transform.position= Vector3.Lerp(startposition, targetposition , elapsedTime / duration);
         if(elapsedTime >= duration){
             waterLevel.transform.position = targetposition;
+            if(onGameEnd != null){
+                onGameEnd.Invoke();
+                onGameEnd = null;
+            }
         }
     }
-
+    void GameEnd(){
+        Debug.Log("se lleno la barra, perdiste");
+    }
 }
