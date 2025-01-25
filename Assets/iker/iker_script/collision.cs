@@ -5,58 +5,64 @@ public class StaticOnCollision : MonoBehaviour
     // Este es el objeto que quieres que se quede estático
     public GameObject objectToFreeze;
     private Rigidbody2D rb2d;
+    private Collider2D col2d;
 
     void Start()
     {
-        // Obtenemos el Rigidbody2D del objeto
+        // Obtenemos el Rigidbody2D y el Collider2D del objeto
         if (objectToFreeze != null)
         {
             rb2d = objectToFreeze.GetComponent<Rigidbody2D>();
+            col2d = objectToFreeze.GetComponent<Collider2D>();
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Colisión detectada con: " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Bola"))
+
+        if (collision.gameObject.CompareTag("Hola"))
         {
-            FreezeObject();
+            // Verificar si el objeto está completamente dentro
+            if (IsColliderCompletelyInside(collision))
+            {
+                Debug.Log("El collider está completamente dentro.");
+                FreezeObject();
+            }
+            else
+            {
+                Debug.Log("El collider no está completamente dentro.");
+            }
         }
     }
 
     void FreezeObject()
     {
-        // Desactivamos la gravedad y bloqueamos la velocidad
+        // Congela el movimiento y la rotación del objeto
         if (rb2d != null)
         {
-            rb2d.gravityScale = 0;   // Desactivamos la gravedad
-            rb2d.velocity = Vector2.zero;  // Detenemos cualquier movimiento inmediato (velocidad)
-            rb2d.angularVelocity = 0f;  // Detenemos cualquier rotación
-            rb2d.isKinematic = true;  // Bloqueamos la física del objeto para que no se mueva
-
-            // Añadimos un control adicional para asegurarnos de que no haya fuerzas aplicadas al objeto
-            rb2d.drag = Mathf.Infinity;  // Aplicamos una resistencia infinita para que no se desplace
-            rb2d.angularDrag = Mathf.Infinity; // Detenemos cualquier rotación inducida por fuerzas
+            rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+            Debug.Log("Objeto congelado.");
         }
 
-        // Asegúrate de que la gravedad global también se desactive si es necesario
-        Physics2D.gravity = Vector2.zero; // Desactiva la gravedad globalmente durante la congelación
+        // Si también quieres deshabilitar la colisión (opcional)
+        if (col2d != null)
+        {
+            col2d.enabled = false;  // Desactiva el Collider2D si no quieres que siga detectando colisiones
+            Debug.Log("Collider deshabilitado.");
+        }
     }
 
-    // Método para restaurar la gravedad y permitir el movimiento nuevamente
-    public void RestoreObject()
+    bool IsColliderCompletelyInside(Collider2D other)
     {
-        if (rb2d != null)
-        {
-            rb2d.gravityScale = 1;   // Restauramos la gravedad individual (ajusta según necesites)
-            rb2d.isKinematic = false;  // Restauramos la física normal del objeto
+        // Verificamos si el collider del objeto está completamente dentro del área del trigger
+        var thisBounds = GetComponent<Collider2D>().bounds;
+        var otherBounds = other.bounds;
 
-            // Restauramos la resistencia física a valores normales
-            rb2d.drag = 0;  // Restablecemos la resistencia a cero
-            rb2d.angularDrag = 0;  // Restablecemos la resistencia angular
-        }
+        Debug.Log($"Bounds del Trigger: {thisBounds}");
+        Debug.Log($"Bounds del Objecto: {otherBounds}");
 
-        // Restauramos la gravedad global si fue desactivada
-        Physics2D.gravity = new Vector2(0, -9.81f); // Restauramos la gravedad global a la normal
+        // Comprobamos si los límites del otro collider están completamente dentro del trigger
+        return thisBounds.Contains(otherBounds.min) && thisBounds.Contains(otherBounds.max);
     }
 }
