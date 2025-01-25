@@ -8,15 +8,17 @@ public class BubbleMovement : MonoBehaviour
     public float dragCo = 0.47f;
     private Rigidbody2D rb;
     private float volObject;
+    private BubbleInteract interact;
     void Start()
     {
         rb= GetComponent<Rigidbody2D>();
         float objectDensity = 50;
         volObject = rb.mass/objectDensity;
+        interact= GetComponent<BubbleInteract>();
     }
 
     void FixedUpdate(){
-
+        if(interact.is_jumping) return;
         float forcePush = liquidDensity * volObject * Physics.gravity.magnitude;
         Vector3 forceVector = forcePush * Vector3.up;
 
@@ -28,6 +30,7 @@ public class BubbleMovement : MonoBehaviour
 
         rb.AddForce(forceVector + forceDragResult);
     }
+    Vector3 velocity2 = Vector3.zero;
     // Update is called once per frame
     void Update()
     {
