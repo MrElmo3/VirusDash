@@ -448,10 +448,10 @@ MonoBehaviour:
   levels:
   - id: tube_1
     name: Tutorial
-    heightTube: 100
-    speedTube: 0
-    speedCharacter: 5
-    enemiesCount: 0
+    heightTube: 20
+    speedTube: 1
+    speedArrow: 100
+    enemiesCount: 5
 --- !u!4 &1579737778
 Transform:
   m_ObjectHideFlags: 0

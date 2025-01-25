@@ -94,6 +94,7 @@ public class GameLogic : MonoBehaviour
                     break;
             }
         }else{
+             Debug.Log("end game " + code);
             #if UNITY_EDITOR
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
             #else
