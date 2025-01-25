@@ -7,6 +7,18 @@ public class ArrowController : MonoBehaviour {
 	[SerializeField] private float startAngle = 25f;
 	[SerializeField] private float endAngle = 155f;
 
+	private float speedRotGame;
+
+	void Awake(){
+		if(!LevelManager.Instance){
+            speedRotGame = speedRotation;
+        }
+        else{
+            LevelManager.LevelDTO level = LevelManager.Instance.GetCurrentLevelDTO();
+            speedRotGame = level.speedArrow;
+        }
+	}
+
 	private void Start() {
 		gameObject.SetActive(false);
 		transform.rotation = Quaternion.Euler(0, 0, startAngle);

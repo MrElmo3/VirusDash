@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
         public string name;
         public float heightTube;
         public float speedTube;
-        public float speedCharacter;
+        public float speedArrow;
         public float enemiesCount;
     }
     public static LevelManager Instance{ get;set;}

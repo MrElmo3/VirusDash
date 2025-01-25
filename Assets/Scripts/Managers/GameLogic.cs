@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
+    public static GameLogic Instance{ get;set;}
+   
+   void Awake()
+   {
+        if(Instance != null && Instance != this){
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        Awakee();
+   }
+
+
     [Header("Variables only for testing")]
     public float targetHeightTest = 50f;
     public float speedWaterTest = 5f;
 
 
     [Header("References")]
+    public GameManager gameManager;
     public GameObject waterLevel;
     public GameObject tube;
 
@@ -22,10 +36,10 @@ public class GameLogic : MonoBehaviour
     private float targetHeightGame;
     private float speedWaterLevelGame;
 
-    public System.Action onGameEnd;
+    public static System.Action<string> onGameEnd;
 
 
-    void Awake(){
+    void Awakee(){
         if(!LevelManager.Instance){
             targetHeightGame = targetHeightTest;
             speedWaterLevelGame = speedWaterTest;
@@ -35,32 +49,60 @@ public class GameLogic : MonoBehaviour
             targetHeightGame = level.heightTube;
             speedWaterLevelGame = level.speedTube;
         }
-        onGameEnd+= GameEnd;
+        onGameEnd+= OnGameEnd;
     }
 
     void OnDestroy(){
-        onGameEnd -= GameEnd;
+        onGameEnd -= OnGameEnd;
     }
 
     void Start(){
         duration = targetHeightGame / speedWaterLevelGame;
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
-        tube.transform.position = targetposition;
+        tube.transform.position = targetposition + new Vector3(0, 0, 3f);
     }
 
     void Update(){
+        if(!gameManager.isStarted) return;
         elapsedTime+= Time.deltaTime;
         waterLevel.transform.position= Vector3.Lerp(startposition, targetposition , elapsedTime / duration);
         if(elapsedTime >= duration){
             waterLevel.transform.position = targetposition;
-            if(onGameEnd != null){
-                onGameEnd.Invoke();
-                onGameEnd = null;
-            }
+            GameEnd("time");
         }
     }
-    void GameEnd(){
-        Debug.Log("se lleno la barra, perdiste");
+    
+    public void GameEnd(string code){
+        if(onGameEnd != null){
+            onGameEnd.Invoke(code);
+            onGameEnd = null;
+        }
     }
+
+    void OnGameEnd(string code){
+        if(LevelManager.Instance){
+            switch(code){
+                case "time": 
+                    Debug.Log("se lleno la barra, perdiste");
+                    break;
+                case "water":
+                    Debug.Log("chocaste agua");
+                    break;
+                case "win":
+                    Debug.Log("chocaste agua");
+                    break;
+            }
+        }else{
+             Debug.Log("end game " + code);
+            #if UNITY_EDITOR
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
+            #else
+                Debug.LogError("Error en la matrix");
+            #endif
+        }
+
+    }
+
+    
 }

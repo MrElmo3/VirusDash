@@ -25,10 +25,17 @@ public class SceneGameManager : MonoBehaviour
     public void ChangeScene(string sceneName){
         SceneManager.LoadScene(sceneName);
     }
-    public void GoToUI(){
-         ChangeScene("TEST_ui");
+    public void GoToMainMenu(){
+         ChangeScene("MainMenu");
     }
-        public void GoToGame(){
-         ChangeScene("MaxScene");
+    public void GoToGame(){
+         ChangeScene("Gameplay");
+    }
+    public void GoToCredits(){
+         ChangeScene("Credits");
+    }
+    public void GoToTutorial(){
+        //"tutoria" is scene animation
+         ChangeScene("CutAnimation");
     }
 }

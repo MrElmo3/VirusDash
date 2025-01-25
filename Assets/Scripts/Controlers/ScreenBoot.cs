@@ -7,7 +7,7 @@ public class ScreenBoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneGameManager.Instance.GoToUI();
+        SceneGameManager.Instance.GoToMainMenu();
     }
        
 }

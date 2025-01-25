@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: 
+  tags:
   - Bola
   - Hola
   - Bubble
   - left
   - down
+  - water
+  - win
   layers:
   - Default
   - TransparentFX

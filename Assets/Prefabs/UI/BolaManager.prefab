@@ -46,6 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countBallsTest: 5
   ballPrefab: {fileID: 5027967755361212143, guid: 4a718d15ed512b0409b82c6881a4c311, type: 3}
+  ballContainer: {fileID: 0}
+  limit_left: {fileID: 0}
+  limit_right: {fileID: 0}
+  bolas:
+  - {fileID: 0}
+  - {fileID: 0}
   tiempoEntreBolas: 2
-  minDistance: 3
-  maxDistance: 8
+  minDistance: 2.5
+  maxDistance: 4
+  index: 0
