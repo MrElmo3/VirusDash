@@ -51,6 +51,7 @@ public class VirusController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Bubble")) {
+            BolaManager.Instance.NextVisible();
             Bubble = other.gameObject;
             isInBubble = true;
             rb.gravityScale = 0;
