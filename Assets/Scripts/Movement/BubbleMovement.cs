@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
-    public float liquidDensity = 1000f;
-    public float dragCo = 0.47f;
-    private Rigidbody2D rb;
-    private float volObject;
-    void Start()
-    {
-        rb= GetComponent<Rigidbody2D>();
-        float objectDensity = 50;
-        volObject = rb.mass/objectDensity;
+    public float bubbleVelocity = 1.0f;
+    public Vector3 bubbleDisplacement = new Vector3(0, 0, 0);
+
+    private Vector3 startPosition;
+
+    private void Start() {
+        startPosition = transform.position;
     }
 
-    void FixedUpdate(){
-        float forcePush = liquidDensity * volObject * Physics.gravity.magnitude;
-        Vector3 forceVector = forcePush * Vector3.up;
-
-        float velocity = rb.velocity.magnitude;
-        Vector3 directionVel = rb.velocity.normalized;
-        float forceDrag = 0.5f * liquidDensity* velocity *velocity * dragCo;
-        Vector3 forceDragResult = -forceDrag * directionVel;
-
-        Debug.Log("patata");
-
-        rb.AddForce(forceVector + forceDragResult);
+    void Update(){
+        transform.position = 
+            startPosition + Mathf.Lerp(-1, 1, (Mathf.Sin(Time.time * bubbleVelocity) + 1 ) / 2) 
+            * bubbleDisplacement;
     }
 }
