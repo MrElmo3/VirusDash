@@ -285,16 +285,12 @@ PrefabInstance:
       value: WaterLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8463898776131654640, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463898776131654640, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8463898776131654640, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.78
+      value: -7.39
       objectReference: {fileID: 0}
     - target: {fileID: 8463898776131654640, guid: f41de59f3cd7f774cbe6712bba89e63b, type: 3}
       propertyPath: m_LocalPosition.z
