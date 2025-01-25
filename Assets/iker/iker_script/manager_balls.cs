@@ -1,36 +1,73 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BolaManager : MonoBehaviour
 {
-    public GameObject[] bolas; // Array para las 7 bolas
+    public static BolaManager Instance{ get;set;}
+  
+
+    [Header("Variables only for testing")]
+    public float countBallsTest = 50f;
+
+    [Header("References")]
+    
+    public GameObject ballPrefab;
+    private List<GameObject> bolas = new List<GameObject>();
     public float tiempoEntreBolas = 2f; // Tiempo entre cada bola que se vuelve visible
+    public float minDistance, maxDistance;
+    private float countBallsGame;
 
-    void Start()
-    {
-        // Asegura que la primera bola siempre esté visible
-        if (bolas.Length > 0)
-        {
-            bolas[0].SetActive(true); // Hace visible la primera bola desde el inicio
+
+    void Awake(){
+         if(Instance != null && Instance != this){
+            Destroy(gameObject);
+            return;
         }
+        Instance = this;
 
-        // Inicializa el resto de bolas como invisibles
-        for (int i = 1; i < bolas.Length; i++)
-        {
-            bolas[i].SetActive(false); // Desactiva las bolas restantes
+        if(!LevelManager.Instance){
+            countBallsGame = countBallsTest;
         }
-
-        // Llama a la función para hacer las bolas visibles una por una cada 2 segundos
-        for (int i = 1; i < bolas.Length; i++)
-        {
-            int index = i; // Necesario para capturar el índice correctamente dentro del bucle
-            Invoke(nameof(HacerVisible), tiempoEntreBolas * index); // Llama a HacerVisible para cada bola
+        else{
+            LevelManager.LevelDTO level = LevelManager.Instance.GetCurrentLevelDTO();
+            countBallsGame = level.enemiesCount;
+          
         }
     }
-
-    void HacerVisible()
+    void Start()
     {
-        // Asegura que se hace visible la bola en el índice correcto
-        for (int i = 1; i < bolas.Length; i++)
+        int i = 0;
+        Vector3 newPos = new Vector3(2,4); 
+//        bool isLeft = true;
+        for (i = 0; i < countBallsGame; i++){
+            float random_x = UnityEngine.Random.Range( /*(isLeft? -5:0) , (isLeft?0:5)*/ -6.5f,6.5f);
+            float random_y = UnityEngine.Random.Range(minDistance,maxDistance);
+            newPos += new Vector3(random_x,random_y);
+  //          isLeft=!isLeft;
+            GameObject b = Instantiate(ballPrefab, newPos, Quaternion.identity);
+            bolas.Add(b);
+       }     
+
+     
+        for (i = 0; i < bolas.Count; i++)
+        {
+            bolas[i].SetActive(false);
+        }
+
+  
+        bolas[0].SetActive(true); 
+        bolas[1].SetActive(true); 
+      //  int index = 2; 
+    }
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Q)) {
+            NextVisible();
+        }
+    }
+    public void NextVisible()
+    {
+        for (int i = 1; i < bolas.Count; i++)
         {
             if (!bolas[i].activeSelf) // Si la bola no está activa
             {
