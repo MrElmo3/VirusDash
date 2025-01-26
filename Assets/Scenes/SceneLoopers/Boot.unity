@@ -517,6 +517,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8213499430111370809, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8301557824361759764, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
