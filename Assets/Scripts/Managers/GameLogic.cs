@@ -66,8 +66,8 @@ public class GameLogic : MonoBehaviour
         duration += 2f;
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
-        
-        tube.transform.position = targetposition + new Vector3(0, -gap_tube_water, 3f);
+                tube.transform.position = (Vector2)targetposition + new Vector2(0, -gap_tube_water);
+
 
         if(TutorialManager.Instance && TutorialManager.Instance.CheckEnableTutorial()){
             TutorialManager.Instance.ShowTutorial();
