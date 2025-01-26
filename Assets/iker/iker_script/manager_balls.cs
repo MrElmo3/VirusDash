@@ -56,8 +56,8 @@ public class BolaManager : MonoBehaviour
             if(_currentHeight + randomHeight > _spaceHeight && _bubbleCount >= 5){
                 break;
             }
-            Vector3 _position = new Vector3(random_x, initSpace + _currentHeight, 0f);
-            GameObject b = Instantiate(ballPrefab, _position, Quaternion.identity);
+            Vector2 _position = new Vector2(random_x, initSpace + _currentHeight);
+            GameObject b = Instantiate(ballPrefab, ballContainer);
             _currentHeight+= randomHeight;
             _bubbleCount++;
             bolas.Add(b);

@@ -8,7 +8,9 @@ public class LevelManager : MonoBehaviour
     public class LevelDTO{
         public string id;
         public string name;
+        [Header("parameters")]
         public float heightTube;
+        public Vector2 bubbleMovement;
         [Header("speed")]
         public float speedTube;
         public float speedArrow;

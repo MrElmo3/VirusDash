@@ -449,24 +449,28 @@ MonoBehaviour:
   - id: tube_tutorial
     name: Tutorial
     heightTube: 15
+    bubbleMovement: {x: 0, y: 0}
     speedTube: 0.4
     speedArrow: 70
     enemiesCount: 5
   - id: tube_1
     name: Level1
     heightTube: 20
+    bubbleMovement: {x: 0.2, y: 0}
     speedTube: 1.2
     speedArrow: 120
     enemiesCount: 10
   - id: tube_2
     name: Level2
     heightTube: 30
+    bubbleMovement: {x: 0, y: 0.2}
     speedTube: 1.6
     speedArrow: 120
     enemiesCount: 10
   - id: tube_3
     name: Level3
     heightTube: 100
+    bubbleMovement: {x: 0.6, y: 0.6}
     speedTube: 2
     speedArrow: 170
     enemiesCount: 10
