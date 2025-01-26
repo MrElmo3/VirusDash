@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneLoopers/Gameplay.unity
     guid: a2449488f03b9884d94fa15b2bfb7a80
+  - enabled: 1
+    path: Assets/Scenes/SceneLoopers/Credits.unity
+    guid: 8b2c6cbed77e54d49ae0757813e586a2
   m_configObjects: {}

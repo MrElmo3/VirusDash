@@ -42,24 +42,10 @@ public class BolaManager : MonoBehaviour
     }
     void Start()
     {
-        /*
-        int i = 0;
-        float acumulative = 4f;
-        Vector3 newPos = new Vector3(2,4); 
-        for (i = 0; i < countBallsGame; i++){
-            float random_x = UnityEngine.Random.Range( limit_left.transform.position.x ,limit_right.transform.position.x  );
-            float random_y = UnityEngine.Random.Range(minDistance,maxDistance);
-            acumulative+= random_y;
-            GameObject b = Instantiate(ballPrefab, new Vector3(random_x,acumulative), Quaternion.identity);
-
-            b.transform.SetParent(ballContainer);
-            bolas.Add(b);
-       }     
-       */
+        
         SpawnBubbles();
     }
     void SpawnBubbles(){
-        //Vector3 newPos = new Vector3(2,4); 
         float _currentHeight = 0f;
         float _spaceHeight = GameLogic.Instance.TargetHeightGame;
         int _bubbleCount = 0;

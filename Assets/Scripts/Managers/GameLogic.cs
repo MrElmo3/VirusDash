@@ -63,6 +63,11 @@ public class GameLogic : MonoBehaviour
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
         tube.transform.position = targetposition + new Vector3(0, 0, 3f);
+
+        if(TutorialManager.Instance && TutorialManager.Instance.CheckEnableTutorial()){
+            TutorialManager.Instance.ShowTutorial();
+        }
+
     }
 
     void Update(){
@@ -117,7 +122,8 @@ public class GameLogic : MonoBehaviour
     }
     public void NextLevel(){
         if(LevelManager.Instance.CheckEndLevels()){
-            SceneGameManager.Instance.GoToCredits();
+            //SceneGameManager.Instance.GoToCredits();
+            SceneGameManager.Instance.GoToBoot();
         }else{
             LevelManager.Instance.SetLevel();
 		    SceneGameManager.Instance.GoToGame();

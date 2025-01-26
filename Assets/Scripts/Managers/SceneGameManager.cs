@@ -36,6 +36,9 @@ public class SceneGameManager : MonoBehaviour
     }
     public void GoToCredits(){
          ChangeScene("Credits");
+    } 
+    public void GoToBoot(){
+         ChangeScene("Boot");
     }
     public void GoToTutorial(){
         //"tutoria" is scene animation
