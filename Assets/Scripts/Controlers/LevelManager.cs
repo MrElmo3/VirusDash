@@ -15,10 +15,11 @@ public class LevelManager : MonoBehaviour
         [Header("optional")]
         public float enemiesCount;
     }
-    public static LevelManager Instance{ get;set;}
 
     public LevelDTO[] levels;
   
+    public static LevelManager Instance{ get;set;}
+
     void Awake()
     {
         if(Instance != null && Instance != this){

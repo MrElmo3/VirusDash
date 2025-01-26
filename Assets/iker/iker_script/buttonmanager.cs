@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
-
+//supuestamente es el script del main menu xd
 public class buttonmanager : MonoBehaviour
 {
 
 
-    public GameObject canvas1; // Canvas que quieres ocultar
-    public GameObject canvas2; // Canvas que quieres mostrar
+    public GameObject canvas1; 
 
+    void Awake(){
+         audioManager.instance.PlayBGM("music-menu");
+    }
+
+    public void OnClick(){
+        audioManager.instance.Play("click-1");
+    }
 
     public void playgame()
     {
@@ -25,18 +31,6 @@ public class buttonmanager : MonoBehaviour
        SceneGameManager.Instance.GoToCredits();
     }
 
-    public void gotomainmenu()
-    {
-        if (canvas1 != null && canvas2 != null)
-        {
-            canvas1.SetActive(true); // Oculta el Canvas 1
-            canvas2.SetActive(false);  // Muestra el Canvas 2
-        }
-        else
-        {
-            Debug.LogWarning("Canvas no asignados en el inspector.");
-        }
-    }
 
     public void quit()
     {

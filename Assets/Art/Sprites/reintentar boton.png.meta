@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 191dd427c9dc8cf459a9892dbade17ff
+guid: 9cb9c1d6d61079940b272c4e44ef9674
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: reintentar boton_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 171
+        width: 334
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621496304532ff549917929438430858
+      internalID: -56649236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reintentar boton_0: -56649236
+      reintentar boton_1: -413303885
+      reintentar boton_10: -857525151
+      reintentar boton_2: -1897320598
+      reintentar boton_3: 1058406889
+      reintentar boton_4: -2128925978
+      reintentar boton_5: -582757559
+      reintentar boton_6: -1790090057
+      reintentar boton_7: 1544711038
+      reintentar boton_8: -114208988
+      reintentar boton_9: 621767466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

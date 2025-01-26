@@ -39,6 +39,7 @@ public class VirusController : MonoBehaviour {
     }
 
     private void ActionInBubble() {
+        if(audioManager.instance) audioManager.instance.Play("dash");
         Arrow.SetActive(false);
         rb.gravityScale = 1;
         isInBubble = false;
@@ -56,8 +57,10 @@ public class VirusController : MonoBehaviour {
             rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
         }else if(other.CompareTag("water")){
+            if(audioManager.instance) audioManager.instance.Play("die-water");
             GameLogic.Instance.GameEnd("water");
         }else if(other.CompareTag("win")){
+            if(audioManager.instance) audioManager.instance.Play("win");
             GameLogic.Instance.GameEnd("win");
         }
 

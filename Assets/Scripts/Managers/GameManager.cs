@@ -8,6 +8,10 @@ public class GameManager : Singleton<GameManager> {
 
 	public bool isStarted = false;
 
+	void Start(){
+		if(audioManager.instance) audioManager.instance.Play("music-gameplay");
+	}
+
 	public void StartGame() {
 		isStarted = true;
 		virusPlayer.StartJump();
@@ -21,5 +25,7 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 	
-
+	public void OnClick(){
+        if(audioManager.instance) audioManager.instance.Play("click-2");
+    }
 }

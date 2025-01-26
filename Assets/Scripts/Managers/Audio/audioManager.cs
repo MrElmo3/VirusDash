@@ -39,17 +39,13 @@ public class audioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-    private void Start()
-    {
-       PlayBGM("Menu");
-    }
 
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogError("No se encontró el audio!");
+            Debug.LogError("No se encontró el SFX!");
             return;
         }
         s.source.Play();
@@ -59,11 +55,12 @@ public class audioManager : MonoBehaviour
         actualBGM = Array.Find(bgmSounds, bgmSounds => bgmSounds.name == name);
         if (actualBGM == null)
         {
-            Debug.LogError("No se encontró el audio!");
+            Debug.LogError("No se encontró el Audio!");
             return;
         }
         actualBGM.source.Play();
     }
+
     public void updateBGMusic(string newTheme)
     {
         if (actualBGM.name != newTheme)
