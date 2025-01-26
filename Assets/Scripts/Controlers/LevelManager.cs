@@ -9,8 +9,10 @@ public class LevelManager : MonoBehaviour
         public string id;
         public string name;
         public float heightTube;
+        [Header("speed")]
         public float speedTube;
         public float speedArrow;
+        [Header("optional")]
         public float enemiesCount;
     }
     public static LevelManager Instance{ get;set;}

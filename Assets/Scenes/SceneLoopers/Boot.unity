@@ -450,25 +450,29 @@ MonoBehaviour:
     name: Tutorial
     heightTube: 15
     speedTube: 0.4
+    speedTubeMax: 0.7
     speedArrow: 70
     enemiesCount: 5
   - id: tube_1
     name: Level1
     heightTube: 20
     speedTube: 1.2
-    speedArrow: 100
+    speedTubeMax: 1.6
+    speedArrow: 120
     enemiesCount: 10
   - id: tube_2
     name: Level2
     heightTube: 20
     speedTube: 1.6
-    speedArrow: 130
+    speedTubeMax: 2
+    speedArrow: 120
     enemiesCount: 10
   - id: tube_3
     name: Level3
     heightTube: 30
     speedTube: 2
-    speedArrow: 150
+    speedTubeMax: 2.5
+    speedArrow: 170
     enemiesCount: 10
 --- !u!4 &1579737778
 Transform:
@@ -504,6 +508,10 @@ PrefabInstance:
     - target: {fileID: 1111575757209749546, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3521208532947215991, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
+      propertyPath: m_SortingOrder
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8023596741699463990, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
       propertyPath: m_Name

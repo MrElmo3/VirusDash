@@ -27,19 +27,20 @@ public class GameLogic : MonoBehaviour
     public GameObject waterLevel;
     public GameObject tube;
 
-        
-    private float duration;
+    [Header("Debug")]
     private Vector3 startposition;
     private Vector3 targetposition;
-    private float elapsedTime = 0f;
+    [SerializeField] private float duration;
+    [SerializeField] private float elapsedTime = 0f;
 
     private float targetHeightGame;
     private float speedWaterLevelGame;
 
-    public float TargetHeightGame=> targetHeightGame;
+    public float TargetHeightGame=> targetHeightGame - gap_tube_water;
 
     public static System.Action<string> onGameEnd;
-
+    public static System.Action<string> onGameMode;
+    public static float gap_tube_water = 5f; // gap porque no se puede reducir el render del agua
 
     void Awakee(){
         if(!LevelManager.Instance){
@@ -52,32 +53,43 @@ public class GameLogic : MonoBehaviour
             speedWaterLevelGame = level.speedTube;
         }
         onGameEnd+= OnGameEnd;
+        onGameMode+= OnGameMode;
     }
 
     void OnDestroy(){
         onGameEnd -= OnGameEnd;
+        onGameMode -= OnGameMode;
     }
 
     void Start(){
         duration = targetHeightGame / speedWaterLevelGame;
+        duration += 2f;
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
-        tube.transform.position = targetposition + new Vector3(0, 0, 3f);
+        
+        tube.transform.position = targetposition + new Vector3(0, -gap_tube_water, 3f);
 
         if(TutorialManager.Instance && TutorialManager.Instance.CheckEnableTutorial()){
             TutorialManager.Instance.ShowTutorial();
         }
-
+        modifier = true;
     }
-
+    bool modifier;
+    float speedMultiple = 1f;
     void Update(){
         if(!gameManager.isStarted) return;
-        elapsedTime+= Time.deltaTime;
+
+        elapsedTime+= Time.deltaTime * speedMultiple;
         waterLevel.transform.position= Vector3.Lerp(startposition, targetposition , elapsedTime / duration);
-        if(elapsedTime >= duration){
-            waterLevel.transform.position = targetposition;
-            GameEnd("time");
+
+        if(elapsedTime >= duration / 2 && modifier){
+            modifier  = false;
+            GameMode("speed-up");
         }
+
+        if(waterLevel.transform.position == targetposition){
+            GameEnd("time");
+        }        
     }
     
     public void GameEnd(string code){
@@ -87,6 +99,19 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+     public void GameMode(string code){
+        if(onGameMode != null){
+            onGameMode.Invoke(code);
+        }
+    }
+    
+    void OnGameMode(string code){
+        switch(code){
+            case "speed-up":
+                speedMultiple = 2f;
+            break;
+        }
+    }
     void OnGameEnd(string code){
         if(LevelManager.Instance){
             switch(code){
