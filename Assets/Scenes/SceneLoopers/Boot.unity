@@ -450,28 +450,24 @@ MonoBehaviour:
     name: Tutorial
     heightTube: 15
     speedTube: 0.4
-    speedTubeMax: 0.7
     speedArrow: 70
     enemiesCount: 5
   - id: tube_1
     name: Level1
     heightTube: 20
     speedTube: 1.2
-    speedTubeMax: 1.6
     speedArrow: 120
     enemiesCount: 10
   - id: tube_2
     name: Level2
-    heightTube: 20
+    heightTube: 30
     speedTube: 1.6
-    speedTubeMax: 2
     speedArrow: 120
     enemiesCount: 10
   - id: tube_3
     name: Level3
-    heightTube: 30
+    heightTube: 100
     speedTube: 2
-    speedTubeMax: 2.5
     speedArrow: 170
     enemiesCount: 10
 --- !u!4 &1579737778

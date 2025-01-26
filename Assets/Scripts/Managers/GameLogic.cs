@@ -148,6 +148,7 @@ public class GameLogic : MonoBehaviour
     public void NextLevel(){
         if(LevelManager.Instance.CheckEndLevels()){
             //SceneGameManager.Instance.GoToCredits();
+            //LevelManager.Instance.ResetLevel();
             SceneGameManager.Instance.GoToBoot();
         }else{
             LevelManager.Instance.SetLevel();

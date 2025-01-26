@@ -37,7 +37,9 @@ public class LevelManager : MonoBehaviour
     public int GetLevel(){
         return PlayerPrefs.GetInt("level", 0);
     }
-
+    public void ResetLevel(){
+         PlayerPrefs.SetInt("level",0);
+    }
     public void SetLevel(int value = 0){
         int new_level = value;
         if(value == 0){
