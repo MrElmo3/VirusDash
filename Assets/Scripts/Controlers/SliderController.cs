@@ -27,9 +27,7 @@ public class SliderController : MonoBehaviour
             GameLogic.Instance.targetHeightTest - GameLogic.Instance.waterLevel.transform.position.y ) / baseData;
         
         parameter = (parameter *-1) +1;
-
-        Debug.Log(liquid.GetComponent<RectTransform>().rect.height);
-
+ 
         liquid.GetComponent<RectTransform>().sizeDelta = new Vector2(
             liquid.GetComponent<RectTransform>().rect.width,
             Mathf.Lerp(startLiquidHeight, targetLiquidHeight, parameter)
