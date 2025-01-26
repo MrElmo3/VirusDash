@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager> {
 	public bool isStarted = false;
 
 	void Start(){
-		if(audioManager.instance) audioManager.instance.PlayBGM("music-gameplay");
+		if(audioManager.instance) audioManager.instance.updateWithFade("music-gameplay",0.5f);
 		Invoke(nameof(PlayBubble),3.2f);
 	}
 
