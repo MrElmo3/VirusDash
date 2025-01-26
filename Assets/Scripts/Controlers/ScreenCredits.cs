@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScreenCredits : MonoBehaviour
 {
     void Start(){
-        if(audioManager.instance) audioManager.instance.Play("music-menu");
+        if(audioManager.instance) audioManager.instance.updateWithFade("music-menu",0.5f);
     }
     public void GoToGame(){
         SceneGameManager.Instance.GoToMainMenu();
