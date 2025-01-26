@@ -66,7 +66,7 @@ public class GameLogic : MonoBehaviour
         duration += 2f;
         startposition = waterLevel.transform.position;
         targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
-                tube.transform.position = (Vector2)targetposition + new Vector2(0, -gap_tube_water);
+                tube.transform.position = (Vector2)targetposition; //+ new Vector2(0, -gap_tube_water);
 
 
         if(TutorialManager.Instance && TutorialManager.Instance.CheckEnableTutorial()){
@@ -114,12 +114,14 @@ public class GameLogic : MonoBehaviour
     }
     void OnGameEnd(string code){
         if(LevelManager.Instance){
+            gameManager.isStarted = false;
             switch(code){
                 case "time": 
                     MessageCanvasManager.Instance.SetMessage(false);
                     Debug.Log("se lleno la barra, perdiste");
                     break;
                 case "water":
+                
                     MessageCanvasManager.Instance.SetMessage(false);
                     Debug.Log("chocaste agua");
                     break;
@@ -139,6 +141,7 @@ public class GameLogic : MonoBehaviour
     }
 
     public void RestartGame(){
+
         SceneGameManager.Instance.GoToGame();
     }
 
