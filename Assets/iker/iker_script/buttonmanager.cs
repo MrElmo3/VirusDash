@@ -22,15 +22,7 @@ public class buttonmanager : MonoBehaviour
 
     public void gotocredits()
     {
-        if (canvas1 != null && canvas2 != null)
-        {
-            canvas1.SetActive(false); // Oculta el Canvas 1
-            canvas2.SetActive(true);  // Muestra el Canvas 2
-        }
-        else
-        {
-            Debug.LogWarning("Canvas no asignados en el inspector.");
-        }
+       SceneGameManager.Instance.GoToCredits();
     }
 
     public void gotomainmenu()

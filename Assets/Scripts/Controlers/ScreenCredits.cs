@@ -5,4 +5,7 @@ using UnityEngine;
 public class ScreenCredits : MonoBehaviour
 {
     
+    public void GoToGame(){
+        SceneGameManager.Instance.GoToMainMenu();
+    }
 }
