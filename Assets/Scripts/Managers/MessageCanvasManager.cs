@@ -12,21 +12,27 @@ public class MessageCanvasManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        Awakee();
         Instance = this;
    }
-
+   public GameObject bg;
    public GameObject winCanvas;
    public GameObject loseCanvas;
-   //public Text loseMessage;
+   bool isWinning;
+   void Awakee(){
+       bg.SetActive(false);
+       winCanvas.SetActive(false);
+       loseCanvas.SetActive(false);
+   }
    public void SetMessage(bool win, string message = ""){
-       winCanvas.SetActive(win);
-       loseCanvas.SetActive(!win);
+      this.isWinning = win;
+
+      Invoke(nameof(ActiveMessage),0.5f);
      //  loseMessage.text = message;
    }
-
-   void TweenMessage(){
-
+   void ActiveMessage(){
+       bg.SetActive(true);
+       winCanvas.SetActive(isWinning);
+       loseCanvas.SetActive(!isWinning);
    }
-
 }

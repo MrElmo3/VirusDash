@@ -61,7 +61,7 @@ public class BolaManager : MonoBehaviour
     void SpawnBubbles(){
         //Vector3 newPos = new Vector3(2,4); 
         float _currentHeight = 0f;
-        float _spaceHeight = 20f;
+        float _spaceHeight = GameLogic.Instance.TargetHeightGame;
         int _bubbleCount = 0;
 
         while(_bubbleCount < countBallsGame || _currentHeight < _spaceHeight){
