@@ -24,7 +24,11 @@ public class VirusController : MonoBehaviour {
     private void Update() {
         if(!isInBubble) return;
 
-        transform.position = (Vector2)Bubble.transform.position;
+        transform.position = new Vector3(
+            Bubble.transform.position.x,
+            Bubble.transform.position.y,
+            transform.position.z
+        );
 
         ShowArrow();
 

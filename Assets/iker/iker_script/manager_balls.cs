@@ -58,6 +58,8 @@ public class BolaManager : MonoBehaviour
             }
             Vector3 _position = new Vector3(random_x, initSpace + _currentHeight, 0f);
             GameObject b = Instantiate(ballPrefab, _position, Quaternion.identity);
+
+            b.transform.localPosition = new Vector3(b.transform.localPosition.x, b.transform.localPosition.y, 0f);
             _currentHeight+= randomHeight;
             _bubbleCount++;
             bolas.Add(b);
@@ -77,10 +79,10 @@ public class BolaManager : MonoBehaviour
         if(index >= 2){
             for (int i = 0; i < bolas.Count; i++)
             {
-                if (!bolas[i].activeSelf) // Si la bola no está activa
+                if (!bolas[i].activeSelf) // Si la bola no estï¿½ activa
                 {
                     bolas[i].SetActive(true); // La hace visible
-                    break; // Sale del bucle después de hacer visible la bola
+                    break; // Sale del bucle despuï¿½s de hacer visible la bola
                 }
             }
         }
