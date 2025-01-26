@@ -1157,6 +1157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MessageCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1832322348347506120, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2233009083906762815, guid: 8dc5e13063ba66c4aba133af1abd0ef0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
