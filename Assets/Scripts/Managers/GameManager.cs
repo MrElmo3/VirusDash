@@ -9,7 +9,12 @@ public class GameManager : Singleton<GameManager> {
 	public bool isStarted = false;
 
 	void Start(){
-		if(audioManager.instance) audioManager.instance.Play("music-gameplay");
+		if(audioManager.instance) audioManager.instance.PlayBGM("music-gameplay");
+		Invoke(nameof(PlayBubble),3.2f);
+	}
+
+	void PlayBubble(){
+		if(audioManager.instance) audioManager.instance.Play("bubble");
 	}
 
 	public void StartGame() {

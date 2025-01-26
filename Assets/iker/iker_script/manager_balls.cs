@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using DG.Tweening;
 public class BolaManager : MonoBehaviour
 {
     public static BolaManager Instance{ get;set;}
@@ -65,6 +65,7 @@ public class BolaManager : MonoBehaviour
             bolas.Add(b);
             b.transform.SetParent(ballContainer);
             b.gameObject.SetActive(false);
+            b.gameObject.transform.localScale = Vector3.zero;
         }
     }
     [SerializeField]int index = 0; 
@@ -81,7 +82,9 @@ public class BolaManager : MonoBehaviour
             {
                 if (!bolas[i].activeSelf) // Si la bola no est� activa
                 {
+
                     bolas[i].SetActive(true); // La hace visible
+                    bolas[i].transform.DOScale(0.6f,0.5f);
                     break; // Sale del bucle despu�s de hacer visible la bola
                 }
             }

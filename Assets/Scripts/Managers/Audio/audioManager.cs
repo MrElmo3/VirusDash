@@ -45,7 +45,7 @@ public class audioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogError("No se encontró el SFX!");
+            Debug.LogError("No se encontró el SFX! " + name);
             return;
         }
         s.source.Play();
@@ -55,7 +55,7 @@ public class audioManager : MonoBehaviour
         actualBGM = Array.Find(bgmSounds, bgmSounds => bgmSounds.name == name);
         if (actualBGM == null)
         {
-            Debug.LogError("No se encontró el Audio!");
+            Debug.LogError("No se encontró el Audio BGM! " + name);
             return;
         }
         actualBGM.source.Play();
