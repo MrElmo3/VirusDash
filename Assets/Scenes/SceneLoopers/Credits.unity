@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1111575757209749546, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2070129e0a0157c4dadc8d944a7becae, type: 3}
     - target: {fileID: 8023596741699463990, guid: d74e08e755f97374f9fd3cb2d64b53fe, type: 3}
       propertyPath: m_Name
       value: CreditsCanvas
@@ -514,9 +518,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 215476829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -395}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -133, y: 121}
   m_SizeDelta: {x: 165, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703770724

@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager> {
+
+	public TMP_Text tutorialText;
 
 	public VirusController virusPlayer;
 
@@ -20,6 +23,7 @@ public class GameManager : Singleton<GameManager> {
 	public void StartGame() {
 		isStarted = true;
 		virusPlayer.StartJump();
+		tutorialText.gameObject.SetActive(false);
 	}
 
 	private void Update() {

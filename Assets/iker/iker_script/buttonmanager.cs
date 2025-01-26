@@ -19,10 +19,7 @@ public class buttonmanager : MonoBehaviour
 
     public void playgame()
     {
-        if(LevelManager.Instance.GetLevel()== 0)
             SceneGameManager.Instance.GoToTutorial();
-        else
-            SceneGameManager.Instance.GoToGame();
     }
 
 
