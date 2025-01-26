@@ -1,23 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class buttonmanager : MonoBehaviour
 {
 
 
-    public GameObject canvas1; // Canvas que quieres ocultar
-    public GameObject canvas2; // Canvas que quieres mostrar
+    public Canvas canvas1; // Canvas que quieres ocultar
+    public Canvas canvas2; // Canvas que quieres mostrar
 
 
     public void playgame()
     {
-        if(LevelManager.Instance.GetLevel()== 0)
-            SceneGameManager.Instance.GoToTutorial();
-        else
-            SceneGameManager.Instance.GoToGame();
+        SceneManager.LoadSceneAsync("iker_scene");
     }
 
 
@@ -25,8 +21,8 @@ public class buttonmanager : MonoBehaviour
     {
         if (canvas1 != null && canvas2 != null)
         {
-            canvas1.SetActive(false); // Oculta el Canvas 1
-            canvas2.SetActive(true);  // Muestra el Canvas 2
+            canvas1.gameObject.SetActive(false); // Oculta el Canvas 1
+            canvas2.gameObject.SetActive(true);  // Muestra el Canvas 2
         }
         else
         {
@@ -38,8 +34,8 @@ public class buttonmanager : MonoBehaviour
     {
         if (canvas1 != null && canvas2 != null)
         {
-            canvas1.SetActive(true); // Oculta el Canvas 1
-            canvas2.SetActive(false);  // Muestra el Canvas 2
+            canvas1.gameObject.SetActive(true); // Oculta el Canvas 1
+            canvas2.gameObject.SetActive(false);  // Muestra el Canvas 2
         }
         else
         {
@@ -47,17 +43,11 @@ public class buttonmanager : MonoBehaviour
         }
     }
 
-    public void ReiniciarJuego()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    
 
     public void quit()
     {
-       #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-       #else
-            Application.Quit();
-       #endif
+        Debug.Log("adios");
+        Application.Quit();
     }
 }
