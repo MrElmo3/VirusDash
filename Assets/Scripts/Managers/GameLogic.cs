@@ -52,6 +52,13 @@ public class GameLogic : MonoBehaviour
             targetHeightGame = level.heightTube;
             speedWaterLevelGame = level.speedTube;
         }
+
+        duration = targetHeightGame / speedWaterLevelGame;
+        duration += 2f;
+        startposition = waterLevel.transform.position;
+        targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
+                tube.transform.position = (Vector2)targetposition; //+ new Vector2(0, -gap_tube_water);
+
         onGameEnd+= OnGameEnd;
         onGameMode+= OnGameMode;
     }
@@ -62,11 +69,6 @@ public class GameLogic : MonoBehaviour
     }
 
     void Start(){
-        duration = targetHeightGame / speedWaterLevelGame;
-        duration += 2f;
-        startposition = waterLevel.transform.position;
-        targetposition = new Vector3(startposition.x, startposition.y + targetHeightGame, startposition.z);
-                tube.transform.position = (Vector2)targetposition; //+ new Vector2(0, -gap_tube_water);
 
 
         if(TutorialManager.Instance && TutorialManager.Instance.CheckEnableTutorial()){

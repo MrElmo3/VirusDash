@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
-{
+{ 
+
+    public int level;
+
     [System.Serializable]
     public class LevelDTO{
         public string id;
         public string name;
+        public Vector2 speedBubble;
         public float heightTube;
         [Header("speed")]
         public float speedTube;
@@ -36,7 +40,7 @@ public class LevelManager : MonoBehaviour
     }
     
     public int GetLevel(){
-        return PlayerPrefs.GetInt("level", 0);
+        return level;
     }
     public void ResetLevel(){
          PlayerPrefs.SetInt("level",0);
@@ -47,7 +51,7 @@ public class LevelManager : MonoBehaviour
             new_level = GetLevel()+1;
         }
         Debug.Log("Setting level to " + new_level);
-        PlayerPrefs.SetInt("level",new_level);
+        level = new_level;
     }
 
     public LevelDTO GetCurrentLevelDTO(){

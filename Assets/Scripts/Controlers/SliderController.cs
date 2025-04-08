@@ -18,13 +18,13 @@ public class SliderController : MonoBehaviour
 
 
     private void Start(){
-        baseData = GameLogic.Instance.targetHeightTest - GameLogic.Instance.waterLevel.transform.position.y;
+        baseData = GameLogic.Instance.TargetHeightGame - GameLogic.Instance.waterLevel.transform.position.y;
     }
 
     private void Update() {
         
         float parameter = (
-            GameLogic.Instance.targetHeightTest - GameLogic.Instance.waterLevel.transform.position.y ) / baseData;
+            GameLogic.Instance.TargetHeightGame - GameLogic.Instance.waterLevel.transform.position.y ) / baseData;
         
         parameter = (parameter *-1) +1;
  
